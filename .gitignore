@@ -1,0 +1,33 @@
+# Build
+bin/
+obj/
+
+# VS
+.vs/
+
+# VS Code
+.vscode/
+
+# Rider
+.idea/
+
+# Node
+node_modules/
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.*
+
+# User files
+*.user
+*.suo
+
+# Coverage
+coverage/
+
+# OS
+.DS_Store
+Thumbs.db

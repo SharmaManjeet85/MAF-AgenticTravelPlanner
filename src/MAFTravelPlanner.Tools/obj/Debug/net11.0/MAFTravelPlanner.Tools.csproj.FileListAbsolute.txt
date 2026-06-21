@@ -13,3 +13,4 @@ C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\obj\Debug\net11.0\MAFTra
 C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\obj\Debug\net11.0\refint\MAFTravelPlanner.Tools.dll
 C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\obj\Debug\net11.0\MAFTravelPlanner.Tools.pdb
 C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\obj\Debug\net11.0\ref\MAFTravelPlanner.Tools.dll
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\obj\Debug\net11.0\MAFTravelPlanner.Tools.sourcelink.json
