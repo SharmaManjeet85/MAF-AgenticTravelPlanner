@@ -1,0 +1,8 @@
+POST http://localhost:5088/api/travel/plan
+Content-Type: application/json
+
+{
+    "destination": "Japan",
+    "days": 5,
+    "budget": 3000
+}
