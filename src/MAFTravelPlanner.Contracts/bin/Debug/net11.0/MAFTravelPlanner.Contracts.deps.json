@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v11.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v11.0": {
+      "MAFTravelPlanner.Contracts/1.0.0": {
+        "runtime": {
+          "MAFTravelPlanner.Contracts.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MAFTravelPlanner.Contracts/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,15 @@
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\bin\Debug\net11.0\MAFTravelPlanner.Tools.deps.json
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\bin\Debug\net11.0\MAFTravelPlanner.Tools.dll
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\bin\Debug\net11.0\MAFTravelPlanner.Tools.pdb
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\bin\Debug\net11.0\MAFTravelPlanner.Contracts.dll
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\bin\Debug\net11.0\MAFTravelPlanner.Contracts.pdb
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\obj\Debug\net11.0\MAFTravelPlanner.Tools.csproj.AssemblyReference.cache
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\obj\Debug\net11.0\MAFTravelPlanner.Tools.GeneratedMSBuildEditorConfig.editorconfig
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\obj\Debug\net11.0\MAFTravelPlanner.Tools.AssemblyInfoInputs.cache
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\obj\Debug\net11.0\MAFTravelPlanner.Tools.AssemblyInfo.cs
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\obj\Debug\net11.0\MAFTravelPlanner.Tools.csproj.CoreCompileInputs.cache
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\obj\Debug\net11.0\MAFTrave.63259F27.Up2Date
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\obj\Debug\net11.0\MAFTravelPlanner.Tools.dll
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\obj\Debug\net11.0\refint\MAFTravelPlanner.Tools.dll
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\obj\Debug\net11.0\MAFTravelPlanner.Tools.pdb
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Tools\obj\Debug\net11.0\ref\MAFTravelPlanner.Tools.dll

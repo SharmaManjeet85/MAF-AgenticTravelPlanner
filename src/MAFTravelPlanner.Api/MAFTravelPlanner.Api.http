@@ -1,0 +1,13 @@
+@MAFTravelPlanner.Api_HostAddress = http://localhost:5088
+
+#if (EnableOpenAPI)
+GET {{MAFTravelPlanner.Api_HostAddress}}/openapi/v1.json
+Accept: application/json
+
+###
+#endif
+
+GET {{MAFTravelPlanner.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

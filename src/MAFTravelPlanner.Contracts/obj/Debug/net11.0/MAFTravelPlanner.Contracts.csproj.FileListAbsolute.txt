@@ -1,0 +1,11 @@
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Contracts\bin\Debug\net11.0\MAFTravelPlanner.Contracts.deps.json
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Contracts\bin\Debug\net11.0\MAFTravelPlanner.Contracts.dll
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Contracts\bin\Debug\net11.0\MAFTravelPlanner.Contracts.pdb
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Contracts\obj\Debug\net11.0\MAFTravelPlanner.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Contracts\obj\Debug\net11.0\MAFTravelPlanner.Contracts.AssemblyInfoInputs.cache
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Contracts\obj\Debug\net11.0\MAFTravelPlanner.Contracts.AssemblyInfo.cs
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Contracts\obj\Debug\net11.0\MAFTravelPlanner.Contracts.csproj.CoreCompileInputs.cache
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Contracts\obj\Debug\net11.0\MAFTravelPlanner.Contracts.dll
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Contracts\obj\Debug\net11.0\refint\MAFTravelPlanner.Contracts.dll
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Contracts\obj\Debug\net11.0\MAFTravelPlanner.Contracts.pdb
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Contracts\obj\Debug\net11.0\ref\MAFTravelPlanner.Contracts.dll
