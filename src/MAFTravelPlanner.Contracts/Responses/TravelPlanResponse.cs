@@ -1,10 +1,10 @@
+using MAFTravelPlanner.Contracts.Models;
+
 namespace MAFTravelPlanner.Contracts.Responses;
 
-public sealed class TravelPlanResponse
+public sealed record TravelPlanResponse
 {
-    public string FlightRecommendation { get; init; } = string.Empty;
-
-    public string HotelRecommendation { get; init; } = string.Empty;
-
-    public string BudgetAnalysis { get; init; } = string.Empty;
+    public required FlightOption Flight { get; init; }
+    public required HotelOption Hotel { get; init; }
+    public required BudgetAnalysis Budget { get; init; }
 }

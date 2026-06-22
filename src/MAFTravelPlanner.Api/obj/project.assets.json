@@ -37,6 +37,19 @@
           }
         }
       },
+      "MAFTravelPlanner.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v11.0",
+        "dependencies": {
+          "MAFTravelPlanner.Contracts": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MAFTravelPlanner.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MAFTravelPlanner.Application.dll": {}
+        }
+      },
       "MAFTravelPlanner.Contracts/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v11.0",
@@ -45,19 +58,6 @@
         },
         "runtime": {
           "bin/placeholder/MAFTravelPlanner.Contracts.dll": {}
-        }
-      },
-      "MAFTravelPlanner.Tools/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v11.0",
-        "dependencies": {
-          "MAFTravelPlanner.Contracts": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/MAFTravelPlanner.Tools.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MAFTravelPlanner.Tools.dll": {}
         }
       }
     }
@@ -99,21 +99,21 @@
         "microsoft.openapi.nuspec"
       ]
     },
+    "MAFTravelPlanner.Application/1.0.0": {
+      "type": "project",
+      "path": "../MAFTravelPlanner.Application/MAFTravelPlanner.Application.csproj",
+      "msbuildProject": "../MAFTravelPlanner.Application/MAFTravelPlanner.Application.csproj"
+    },
     "MAFTravelPlanner.Contracts/1.0.0": {
       "type": "project",
       "path": "../MAFTravelPlanner.Contracts/MAFTravelPlanner.Contracts.csproj",
       "msbuildProject": "../MAFTravelPlanner.Contracts/MAFTravelPlanner.Contracts.csproj"
-    },
-    "MAFTravelPlanner.Tools/1.0.0": {
-      "type": "project",
-      "path": "../MAFTravelPlanner.Tools/MAFTravelPlanner.Tools.csproj",
-      "msbuildProject": "../MAFTravelPlanner.Tools/MAFTravelPlanner.Tools.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net11.0": [
+      "MAFTravelPlanner.Application >= 1.0.0",
       "MAFTravelPlanner.Contracts >= 1.0.0",
-      "MAFTravelPlanner.Tools >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 11.0.0-preview.2.26159.112"
     ]
   },
@@ -150,11 +150,11 @@
           "framework": "net11.0",
           "targetAlias": "net11.0",
           "projectReferences": {
+            "c:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Application\\MAFTravelPlanner.Application.csproj": {
+              "projectPath": "c:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Application\\MAFTravelPlanner.Application.csproj"
+            },
             "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj": {
               "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj"
-            },
-            "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Tools\\MAFTravelPlanner.Tools.csproj": {
-              "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Tools\\MAFTravelPlanner.Tools.csproj"
             }
           }
         }

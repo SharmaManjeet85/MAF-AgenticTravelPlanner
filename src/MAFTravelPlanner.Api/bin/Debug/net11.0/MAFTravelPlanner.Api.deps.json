@@ -8,8 +8,8 @@
     ".NETCoreApp,Version=v11.0": {
       "MAFTravelPlanner.Api/1.0.0": {
         "dependencies": {
+          "MAFTravelPlanner.Application": "1.0.0",
           "MAFTravelPlanner.Contracts": "1.0.0",
-          "MAFTravelPlanner.Tools": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "11.0.0-preview.2.26159.112"
         },
         "runtime": {
@@ -35,20 +35,20 @@
           }
         }
       },
-      "MAFTravelPlanner.Contracts/1.0.0": {
+      "MAFTravelPlanner.Application/1.0.0": {
+        "dependencies": {
+          "MAFTravelPlanner.Contracts": "1.0.0"
+        },
         "runtime": {
-          "MAFTravelPlanner.Contracts.dll": {
+          "MAFTravelPlanner.Application.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
       },
-      "MAFTravelPlanner.Tools/1.0.0": {
-        "dependencies": {
-          "MAFTravelPlanner.Contracts": "1.0.0"
-        },
+      "MAFTravelPlanner.Contracts/1.0.0": {
         "runtime": {
-          "MAFTravelPlanner.Tools.dll": {
+          "MAFTravelPlanner.Contracts.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -76,12 +76,12 @@
       "path": "microsoft.openapi/3.3.1",
       "hashPath": "microsoft.openapi.3.3.1.nupkg.sha512"
     },
-    "MAFTravelPlanner.Contracts/1.0.0": {
+    "MAFTravelPlanner.Application/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "MAFTravelPlanner.Tools/1.0.0": {
+    "MAFTravelPlanner.Contracts/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

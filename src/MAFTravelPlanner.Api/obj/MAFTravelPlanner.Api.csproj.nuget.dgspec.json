@@ -33,11 +33,11 @@
             "framework": "net11.0",
             "targetAlias": "net11.0",
             "projectReferences": {
+              "c:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Application\\MAFTravelPlanner.Application.csproj": {
+                "projectPath": "c:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Application\\MAFTravelPlanner.Application.csproj"
+              },
               "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj": {
                 "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj"
-              },
-              "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Tools\\MAFTravelPlanner.Tools.csproj": {
-                "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Tools\\MAFTravelPlanner.Tools.csproj"
               }
             }
           }
@@ -502,14 +502,14 @@
         }
       }
     },
-    "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj": {
+    "c:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Application\\MAFTravelPlanner.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj",
-        "projectName": "MAFTravelPlanner.Contracts",
-        "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj",
+        "projectUniqueName": "c:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Application\\MAFTravelPlanner.Application.csproj",
+        "projectName": "MAFTravelPlanner.Application",
+        "projectPath": "c:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Application\\MAFTravelPlanner.Application.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\obj\\",
+        "outputPath": "c:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -530,7 +530,11 @@
           "net11.0": {
             "framework": "net11.0",
             "targetAlias": "net11.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj": {
+                "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -843,14 +847,14 @@
         }
       }
     },
-    "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Tools\\MAFTravelPlanner.Tools.csproj": {
+    "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Tools\\MAFTravelPlanner.Tools.csproj",
-        "projectName": "MAFTravelPlanner.Tools",
-        "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Tools\\MAFTravelPlanner.Tools.csproj",
+        "projectUniqueName": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj",
+        "projectName": "MAFTravelPlanner.Contracts",
+        "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Tools\\obj\\",
+        "outputPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -871,11 +875,7 @@
           "net11.0": {
             "framework": "net11.0",
             "targetAlias": "net11.0",
-            "projectReferences": {
-              "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj": {
-                "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MAFTravelPlanner.Contracts")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ad508da7333105795b8e82bc1340f54483f3807")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+01735e3e9fe6bc04ea922764b7f89d14da83083c")]
 [assembly: System.Reflection.AssemblyProductAttribute("MAFTravelPlanner.Contracts")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MAFTravelPlanner.Contracts")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -9,9 +9,7 @@ C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Api\bin\Debug\net11.0\MAFTrave
 C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Api\bin\Debug\net11.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Api\bin\Debug\net11.0\Microsoft.OpenApi.dll
 C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Api\bin\Debug\net11.0\MAFTravelPlanner.Contracts.dll
-C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Api\bin\Debug\net11.0\MAFTravelPlanner.Tools.dll
 C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Api\bin\Debug\net11.0\MAFTravelPlanner.Contracts.pdb
-C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Api\bin\Debug\net11.0\MAFTravelPlanner.Tools.pdb
 C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Api\obj\Debug\net11.0\MAFTravelPlanner.Api.csproj.AssemblyReference.cache
 C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Api\obj\Debug\net11.0\rpswa.dswa.cache.json
 C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Api\obj\Debug\net11.0\MAFTravelPlanner.Api.GeneratedMSBuildEditorConfig.editorconfig
@@ -37,3 +35,5 @@ C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Api\obj\Debug\net11.0\MAFTrave
 C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Api\obj\Debug\net11.0\MAFTravelPlanner.Api.genruntimeconfig.cache
 C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Api\obj\Debug\net11.0\ref\MAFTravelPlanner.Api.dll
 C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Api\obj\Debug\net11.0\MAFTravelPlanner.Api.sourcelink.json
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Api\bin\Debug\net11.0\MAFTravelPlanner.Application.dll
+C:\Learning\MAFTravelPlanner\src\MAFTravelPlanner.Api\bin\Debug\net11.0\MAFTravelPlanner.Application.pdb

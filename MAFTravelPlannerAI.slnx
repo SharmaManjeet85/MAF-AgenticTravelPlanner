@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/MAFTravelPlanner.Api/MAFTravelPlanner.Api.csproj" />
+    <Project Path="src/MAFTravelPlanner.Application/MAFTravelPlanner.Application.csproj" />
     <Project Path="src/MAFTravelPlanner.Contracts/MAFTravelPlanner.Contracts.csproj" />
     <Project Path="src/MAFTravelPlanner.Tools/MAFTravelPlanner.Tools.csproj" />
   </Folder>

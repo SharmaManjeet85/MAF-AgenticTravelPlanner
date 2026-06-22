@@ -1,9 +1,9 @@
 using MAFTravelPlanner.Contracts.Requests;
 using MAFTravelPlanner.Contracts.Responses;
 
-namespace MAFTravelPlanner.Tools.Interfaces;
+namespace MAFTravelPlanner.Application.Interfaces;
 
-public interface ITravelPlanningTool
+public interface ITravelPlannerOrchestrator
 {
     Task<TravelPlanResponse> GeneratePlanAsync(
         TravelRequest request,

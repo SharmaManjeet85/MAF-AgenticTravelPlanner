@@ -1,5 +1,6 @@
+using MAFTravelPlanner.Application.Interfaces;
 using MAFTravelPlanner.Contracts.Requests;
-using MAFTravelPlanner.Tools.Interfaces;
+
 
 namespace MAFTravelPlanner.Api.Endpoints;
 
@@ -12,11 +13,11 @@ public static class TravelEndpoints
             "/api/travel/plan",
             async (
                 TravelRequest request,
-                ITravelPlanningTool service,
+                ITravelPlannerOrchestrator orchestrator,
                 CancellationToken cancellationToken) =>
             {
                 var response =
-                    await service.GeneratePlanAsync(
+                    await orchestrator.GeneratePlanAsync(
                         request,
                         cancellationToken);
 
