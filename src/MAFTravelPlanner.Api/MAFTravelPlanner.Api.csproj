@@ -7,12 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="11.0.0-preview.2.26159.112" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MAFTravelPlanner.Contracts\MAFTravelPlanner.Contracts.csproj" />
     <ProjectReference Include="..\MAFTravelPlanner.Application\MAFTravelPlanner.Application.csproj" />
+    <ProjectReference Include="..\MAFTravelPlanner.Infrastructure\MAFTravelPlanner.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

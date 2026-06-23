@@ -1,3 +1,4 @@
+using MAFTravelPlanner.Application.Common;
 using MAFTravelPlanner.Application.Interfaces;
 using MAFTravelPlanner.Contracts.Requests;
 using MAFTravelPlanner.Contracts.Responses;
@@ -21,27 +22,43 @@ public sealed class TravelPlannerOrchestrator
         _budgetService = budgetService;
     }
 
-    public async Task<TravelPlanResponse> GeneratePlanAsync(
+    public async Task<Result<TravelPlanResponse>> GeneratePlanAsync(
         TravelRequest request,
         CancellationToken cancellationToken = default)
     {
-        var flight = await _flightService.FindFlightAsync(
+        var flightResult = await _flightService.FindFlightAsync(
             request.Destination,
             cancellationToken);
 
-        var hotel = await _hotelService.FindHotelAsync(
+        if(flightResult.IsFailure)
+        {
+            return Result<TravelPlanResponse>.Failure(flightResult.Error);
+        }            
+
+        var hotelResult = await _hotelService.FindHotelAsync(
             request.Destination,
             cancellationToken);
 
-        var budget = await _budgetService.AnalyzeBudgetAsync(
+        if(hotelResult.IsFailure)
+        {
+            return Result<TravelPlanResponse>.Failure(hotelResult.Error);
+        }
+
+        var budgetResult = await _budgetService.AnalyzeBudgetAsync(
             request.Budget,
             cancellationToken);
 
-        return new TravelPlanResponse
+        if(budgetResult.IsFailure)
         {
-            Flight = flight,
-            Hotel = hotel,
-            Budget = budget
-        };
+            return Result<TravelPlanResponse>.Failure(budgetResult.Error);
+        }
+
+        return Result<TravelPlanResponse>.Success(
+            new TravelPlanResponse
+            {
+                Flight = flightResult.Value!,
+                Hotel = hotelResult.Value!,
+                Budget = budgetResult.Value!
+            });
     }
 }

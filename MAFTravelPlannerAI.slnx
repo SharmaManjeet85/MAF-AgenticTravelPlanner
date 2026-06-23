@@ -5,4 +5,7 @@
     <Project Path="src/MAFTravelPlanner.Contracts/MAFTravelPlanner.Contracts.csproj" />
     <Project Path="src/MAFTravelPlanner.Tools/MAFTravelPlanner.Tools.csproj" />
   </Folder>
+  <Folder Name="/src/MAFTravelPlanner.Infrastructure/">
+    <Project Path="src/MAFTravelPlanner.Infrastructure/MAFtravelPlanner.Infrastructure.csproj" />
+  </Folder>
 </Solution>

@@ -5,7 +5,7 @@ POST {{host}}/api/travel/plan
 Content-Type: application/json
 
 {
-  "destination": "Japan",
-  "days": 5,
+  "destination": "mars",
+  "days": 2,
   "budget": 150000
 }

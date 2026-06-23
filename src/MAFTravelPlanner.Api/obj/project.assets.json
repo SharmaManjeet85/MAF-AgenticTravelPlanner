@@ -2,6 +2,55 @@
   "version": 4,
   "targets": {
     "net11.0": {
+      "FluentValidation/12.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "FluentValidation.AspNetCore/11.3.1": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "11.11.0",
+          "FluentValidation.DependencyInjectionExtensions": "11.11.0"
+        },
+        "compile": {
+          "lib/net6.0/FluentValidation.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/FluentValidation.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "FluentValidation.DependencyInjectionExtensions/11.11.0": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "11.11.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.OpenApi/11.0.0-preview.2.26159.112": {
         "type": "package",
         "dependencies": {
@@ -41,6 +90,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v11.0",
         "dependencies": {
+          "FluentValidation": "12.1.1",
           "MAFTravelPlanner.Contracts": "1.0.0"
         },
         "compile": {
@@ -59,10 +109,74 @@
         "runtime": {
           "bin/placeholder/MAFTravelPlanner.Contracts.dll": {}
         }
+      },
+      "MAFTravelPlanner.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v11.0",
+        "dependencies": {
+          "MAFTravelPlanner.Application": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MAFTravelPlanner.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MAFTravelPlanner.Infrastructure.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "FluentValidation/12.1.1": {
+      "sha512": "EPpkIe1yh1a0OXyC100oOA8WMbZvqUu5plwhvYcb7oSELfyUZzfxV48BLhvs3kKo4NwG7MGLNgy1RJiYtT8Dpw==",
+      "type": "package",
+      "path": "fluentvalidation/12.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.12.1.1.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net8.0/FluentValidation.dll",
+        "lib/net8.0/FluentValidation.xml"
+      ]
+    },
+    "FluentValidation.AspNetCore/11.3.1": {
+      "sha512": "FjkfrGGwC+25oH8QpX1ti3gxkFjDDtotkAQWyQz2CkwQwEfRKTANjhh77I79kY8dov2ydK1SY+e4jiOWsbbDdQ==",
+      "type": "package",
+      "path": "fluentvalidation.aspnetcore/11.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.aspnetcore.11.3.1.nupkg.sha512",
+        "fluentvalidation.aspnetcore.nuspec",
+        "lib/net5.0/FluentValidation.AspNetCore.dll",
+        "lib/net5.0/FluentValidation.AspNetCore.xml",
+        "lib/net6.0/FluentValidation.AspNetCore.dll",
+        "lib/net6.0/FluentValidation.AspNetCore.xml",
+        "lib/netcoreapp3.1/FluentValidation.AspNetCore.dll",
+        "lib/netcoreapp3.1/FluentValidation.AspNetCore.xml"
+      ]
+    },
+    "FluentValidation.DependencyInjectionExtensions/11.11.0": {
+      "sha512": "viTKWaMbL3yJYgGI0DiCeavNbE9UPMWFVK2XS9nYXGbm3NDMd0/L5ER4wBzmTtW3BYh3SrlSXm9RACiKZ6stlA==",
+      "type": "package",
+      "path": "fluentvalidation.dependencyinjectionextensions/11.11.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.dependencyinjectionextensions.11.11.0.nupkg.sha512",
+        "fluentvalidation.dependencyinjectionextensions.nuspec",
+        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll",
+        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.xml",
+        "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll",
+        "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.xml"
+      ]
+    },
     "Microsoft.AspNetCore.OpenApi/11.0.0-preview.2.26159.112": {
       "sha512": "roZGiSvLuxH4Jf4Vsi9FwNGje0HYFMooOCaGPauecUJiRCB5f5vsrjYKKOIIgiW1OUbX5Jcf8/0e4IdkoNkpaQ==",
       "type": "package",
@@ -108,12 +222,19 @@
       "type": "project",
       "path": "../MAFTravelPlanner.Contracts/MAFTravelPlanner.Contracts.csproj",
       "msbuildProject": "../MAFTravelPlanner.Contracts/MAFTravelPlanner.Contracts.csproj"
+    },
+    "MAFTravelPlanner.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../MAFTravelPlanner.Infrastructure/MAFTravelPlanner.Infrastructure.csproj",
+      "msbuildProject": "../MAFTravelPlanner.Infrastructure/MAFTravelPlanner.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net11.0": [
+      "FluentValidation.AspNetCore >= 11.3.1",
       "MAFTravelPlanner.Application >= 1.0.0",
       "MAFTravelPlanner.Contracts >= 1.0.0",
+      "MAFTravelPlanner.Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 11.0.0-preview.2.26159.112"
     ]
   },
@@ -150,11 +271,14 @@
           "framework": "net11.0",
           "targetAlias": "net11.0",
           "projectReferences": {
-            "c:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Application\\MAFTravelPlanner.Application.csproj": {
-              "projectPath": "c:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Application\\MAFTravelPlanner.Application.csproj"
+            "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Application\\MAFTravelPlanner.Application.csproj": {
+              "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Application\\MAFTravelPlanner.Application.csproj"
             },
             "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj": {
               "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj"
+            },
+            "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Infrastructure\\MAFTravelPlanner.Infrastructure.csproj": {
+              "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Infrastructure\\MAFTravelPlanner.Infrastructure.csproj"
             }
           }
         }
@@ -176,6 +300,10 @@
         "framework": "net11.0",
         "targetAlias": "net11.0",
         "dependencies": {
+          "FluentValidation.AspNetCore": {
+            "target": "Package",
+            "version": "[11.3.1, )"
+          },
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
             "version": "[11.0.0-preview.2.26159.112, )"

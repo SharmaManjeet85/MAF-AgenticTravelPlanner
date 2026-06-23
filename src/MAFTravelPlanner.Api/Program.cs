@@ -1,5 +1,9 @@
+using FluentValidation;
 using MAFTravelPlanner.Api.DependencyInjection;
+using MAFTravelPlanner.Application.Validation;
 using MAFTravelPlanner.Api.Endpoints;
+using MAFTravelPlanner.Api.Middleware;
+using MAFTravelPlanner.Infrastructure.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 builder.Services.AddTravelPlannerServices();
-
+builder.Services.AddInfrastructure();
+builder.Services.AddValidatorsFromAssemblyContaining<TravelRequestValidator>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -17,6 +22,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 var summaries = new[]
 {
