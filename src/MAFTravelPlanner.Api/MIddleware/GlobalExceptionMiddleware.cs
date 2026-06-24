@@ -34,7 +34,7 @@ public sealed class GlobalExceptionMiddleware
                 new
                 {
                     title = "Internal Server Error",
-                    detail = ex.Message
+                    detail = ex.ToString()
                 });
         }
     }
