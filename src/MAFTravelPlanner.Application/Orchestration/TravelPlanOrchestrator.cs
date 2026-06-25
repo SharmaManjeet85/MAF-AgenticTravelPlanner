@@ -3,7 +3,7 @@ using MAFTravelPlanner.Application.Interfaces;
 using MAFTravelPlanner.Contracts.Requests;
 using MAFTravelPlanner.Contracts.Responses;
 
-namespace TravelPlanner.Application.Orchestration;
+namespace MAFTravelPlanner.Application.Orchestration;
 
 public sealed class TravelPlannerOrchestrator
     : ITravelPlannerOrchestrator

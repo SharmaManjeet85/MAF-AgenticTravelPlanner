@@ -1,4 +1,4 @@
-using MAFTravelPlanner.Application.Interfaces;
+using MAFTravelPlanner.Application.AI;
 
 namespace MAFTravelPlanner.Api.Endpoints;
 
@@ -15,8 +15,10 @@ public static class AiEndpoints
                 CancellationToken cancellationToken) =>
             {
                 var response =
-                    await llmService.GenerateAsync(
-                        "Explain microservices in 3 lines.",
+                    await llmService.GenerateAsync(new LlmRequest
+                    (
+                        "Explain microservices in 3 lines."
+                    ),
                         cancellationToken);
 
                 return Results.Ok(response);

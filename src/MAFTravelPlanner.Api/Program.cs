@@ -4,6 +4,7 @@ using MAFTravelPlanner.Application.Validation;
 using MAFTravelPlanner.Api.Endpoints;
 using MAFTravelPlanner.Api.Middleware;
 using MAFTravelPlanner.Infrastructure.DependencyInjection;
+using MAFTravelPlanner.Application.DependencyInjection;
 // using Microsoft.Extensions.Options;
 // using MAFTravelPlanner.Infrastructure.Configuration;
 
@@ -12,8 +13,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-builder.Services.AddTravelPlannerServices();
+builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddTravelPlannerServices();
 builder.Services.AddValidatorsFromAssemblyContaining<TravelRequestValidator>();
 var app = builder.Build();
 
@@ -40,6 +42,7 @@ var summaries = new[]
 };
 app.MapAiEndpoints();
 app.MapTravelEndpoints();
+app.MapTravelAdvisorEndpoints();
 app.MapGet("/weatherforecast", () =>
 {
     var forecast =  Enumerable.Range(1, 5).Select(index =>

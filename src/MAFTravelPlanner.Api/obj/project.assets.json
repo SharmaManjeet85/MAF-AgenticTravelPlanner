@@ -110,17 +110,17 @@
           "bin/placeholder/MAFTravelPlanner.Contracts.dll": {}
         }
       },
-      "MAFtravelPlanner.Infrastructure/1.0.0": {
+      "MAFTravelPlanner.Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v11.0",
         "dependencies": {
           "MAFTravelPlanner.Application": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/MAFtravelPlanner.Infrastructure.dll": {}
+          "bin/placeholder/MAFTravelPlanner.Infrastructure.dll": {}
         },
         "runtime": {
-          "bin/placeholder/MAFtravelPlanner.Infrastructure.dll": {}
+          "bin/placeholder/MAFTravelPlanner.Infrastructure.dll": {}
         }
       }
     }
@@ -223,10 +223,10 @@
       "path": "../MAFTravelPlanner.Contracts/MAFTravelPlanner.Contracts.csproj",
       "msbuildProject": "../MAFTravelPlanner.Contracts/MAFTravelPlanner.Contracts.csproj"
     },
-    "MAFtravelPlanner.Infrastructure/1.0.0": {
+    "MAFTravelPlanner.Infrastructure/1.0.0": {
       "type": "project",
-      "path": "../MAFTravelPlanner.Infrastructure/MAFtravelPlanner.Infrastructure.csproj",
-      "msbuildProject": "../MAFTravelPlanner.Infrastructure/MAFtravelPlanner.Infrastructure.csproj"
+      "path": "../MAFTravelPlanner.Infrastructure/MAFTravelPlanner.Infrastructure.csproj",
+      "msbuildProject": "../MAFTravelPlanner.Infrastructure/MAFTravelPlanner.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -234,7 +234,7 @@
       "FluentValidation.AspNetCore >= 11.3.1",
       "MAFTravelPlanner.Application >= 1.0.0",
       "MAFTravelPlanner.Contracts >= 1.0.0",
-      "MAFtravelPlanner.Infrastructure >= 1.0.0",
+      "MAFTravelPlanner.Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 11.0.0-preview.2.26159.112"
     ]
   },
@@ -277,8 +277,8 @@
             "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj": {
               "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj"
             },
-            "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Infrastructure\\MAFtravelPlanner.Infrastructure.csproj": {
-              "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Infrastructure\\MAFtravelPlanner.Infrastructure.csproj"
+            "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Infrastructure\\MAFTravelPlanner.Infrastructure.csproj": {
+              "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Infrastructure\\MAFTravelPlanner.Infrastructure.csproj"
             }
           }
         }

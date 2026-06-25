@@ -1,8 +1,8 @@
-namespace MAFTravelPlanner.Application.Interfaces;
+namespace MAFTravelPlanner.Application.AI;
 
 public interface ILlmService
 {
     Task<string> GenerateAsync(
-        string prompt,
+        LlmRequest request,
         CancellationToken cancellationToken = default);
 }

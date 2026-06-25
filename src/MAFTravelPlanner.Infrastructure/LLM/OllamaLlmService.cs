@@ -1,7 +1,7 @@
 using System.Text;
 using System.Text.Json;
 using Microsoft.Extensions.Options;
-using MAFTravelPlanner.Application.Interfaces;
+using MAFTravelPlanner.Application.AI;
 using MAFTravelPlanner.Infrastructure.Configuration;
 using MAFTravelPlanner.Infrastructure.LLM.Models;
 
@@ -21,13 +21,14 @@ public sealed class OllamaLlmService : ILlmService
     }
 
     public async Task<string> GenerateAsync(
-        string prompt,
+        LlmRequest llmRequest,
         CancellationToken cancellationToken = default)
     {
+
         var request = new OllamaGenerateRequest
         {
             Model = _options.Model,
-            Prompt = prompt,
+            Prompt = llmRequest.Prompt,
             Stream = false
         };
 
@@ -57,6 +58,8 @@ public sealed class OllamaLlmService : ILlmService
                 responseJson);
 
         // return responseJson;
-        return result?.Response ?? string.Empty;
-    }
+       // return result?.Response ?? string.Empty;
+        return new LlmResponse(
+            result?.Response ?? string.Empty,
+            _options.Model).Content;    }
 }

@@ -1,0 +1,12 @@
+@host=http://localhost:5088
+
+###
+POST {{host}}/api/travel/advice
+Content-Type: application/json
+
+{
+  "destination": "Goa",
+  "days": 5,
+  "budget": 50000,
+  "travelstyle": "family"
+}

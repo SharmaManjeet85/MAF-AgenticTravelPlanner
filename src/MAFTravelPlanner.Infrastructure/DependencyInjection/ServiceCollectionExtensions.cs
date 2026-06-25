@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MAFTravelPlanner.Infrastructure.Configuration;
-using MAFTravelPlanner.Application.Interfaces;
+using MAFTravelPlanner.Application.AI;
 using MAFTravelPlanner.Infrastructure.LLM;
 
 namespace MAFTravelPlanner.Infrastructure.DependencyInjection;

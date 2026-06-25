@@ -2,8 +2,7 @@ using MAFTravelPlanner.Application.Budget;
 using MAFTravelPlanner.Application.Flight;
 using MAFTravelPlanner.Application.Hotel;
 using MAFTravelPlanner.Application.Interfaces;
-
-using TravelPlanner.Application.Orchestration;
+using MAFTravelPlanner.Application.Orchestration;
 
 namespace MAFTravelPlanner.Api.DependencyInjection;
 
@@ -22,6 +21,8 @@ public static class ServiceCollectionExtensions
         services.AddScoped<
             ITravelPlannerOrchestrator,
             TravelPlannerOrchestrator>();
+            
+
 
         return services;
     }
