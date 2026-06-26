@@ -1,8 +1,10 @@
+using MAFTravelPlanner.Application.AI.Models;
+
 namespace MAFTravelPlanner.Application.AI;
 
 public interface ILlmService
 {
-    Task<string> GenerateAsync(
+    Task<LlmResponse> GenerateAsync(
         LlmRequest request,
         CancellationToken cancellationToken = default);
 }

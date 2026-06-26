@@ -1,4 +1,5 @@
 using MAFTravelPlanner.Application.AI;
+using MAFTravelPlanner.Application.AI.Models;
 
 namespace MAFTravelPlanner.Api.Endpoints;
 

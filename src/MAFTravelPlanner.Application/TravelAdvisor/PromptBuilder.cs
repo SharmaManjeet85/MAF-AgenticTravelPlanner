@@ -1,3 +1,4 @@
+using MAFTravelPlanner.Application.AI.Tools;
 using MAFTravelPlanner.Contracts.TravelAdvisor;
 
 namespace MAFTravelPlanner.Application.TravelAdvisor;
@@ -5,24 +6,39 @@ namespace MAFTravelPlanner.Application.TravelAdvisor;
 internal static class PromptBuilder
 {
     public static string Build(
-        TravelAdviceRequest request)
+    TravelAdviceRequest request,
+    ToolResult weatherResult)
     {
         return $"""
-You are an experienced travel advisor.
+    Travel Planning Context
 
-Destination: {request.Destination}
-Duration: {request.Days} days
-Budget: {request.Budget}
-Travel Style: {request.TravelStyle}
+    Weather Information
+    -------------------
 
-Provide:
+    {weatherResult.Content}
 
-1. Recommended itinerary
-2. Budget allocation
-3. Key attractions
-4. Travel tips
+    User Request
+    ------------
 
-Keep response concise.
-""";
+    Destination : {request.Destination}
+
+    Duration    : {request.Days} days
+
+    Budget      : ₹{request.Budget}
+
+    Travel Style: {request.TravelStyle}
+
+    Instructions
+    ------------
+
+    Prepare a practical travel itinerary.
+
+    Use the weather information while making recommendations.
+
+    Suggest suitable outdoor and indoor activities.
+
+    Keep the response concise.
+
+    """;
     }
 }

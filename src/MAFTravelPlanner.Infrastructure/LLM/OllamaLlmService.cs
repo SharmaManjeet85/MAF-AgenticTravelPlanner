@@ -4,6 +4,8 @@ using Microsoft.Extensions.Options;
 using MAFTravelPlanner.Application.AI;
 using MAFTravelPlanner.Infrastructure.Configuration;
 using MAFTravelPlanner.Infrastructure.LLM.Models;
+using MAFTravelPlanner.Application.AI.Models;
+using System.Diagnostics;
 
 namespace MAFTravelPlanner.Infrastructure.LLM;
 
@@ -20,7 +22,7 @@ public sealed class OllamaLlmService : ILlmService
         _options = options.Value;
     }
 
-    public async Task<string> GenerateAsync(
+    public async Task<LlmResponse> GenerateAsync(
         LlmRequest llmRequest,
         CancellationToken cancellationToken = default)
     {
@@ -34,6 +36,8 @@ public sealed class OllamaLlmService : ILlmService
 
         var json = JsonSerializer.Serialize(request);
 
+        var stopwatch = Stopwatch.StartNew();
+
         var response = await _httpClient.PostAsync(
             "api/generate",
             new StringContent(
@@ -46,6 +50,7 @@ public sealed class OllamaLlmService : ILlmService
             await response.Content.ReadAsStringAsync(
                 cancellationToken);
 
+        stopwatch.Stop();
 
         if (!response.IsSuccessStatusCode)
         {
@@ -59,7 +64,10 @@ public sealed class OllamaLlmService : ILlmService
 
         // return responseJson;
        // return result?.Response ?? string.Empty;
-        return new LlmResponse(
-            result?.Response ?? string.Empty,
-            _options.Model).Content;    }
+return new LlmResponse(
+    result?.Response ?? string.Empty,
+    new AiResponseMetadata(
+        _options.Model,
+        stopwatch.Elapsed));
+}
 }
