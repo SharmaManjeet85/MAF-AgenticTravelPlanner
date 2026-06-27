@@ -39,8 +39,8 @@
               "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj": {
                 "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Contracts\\MAFTravelPlanner.Contracts.csproj"
               },
-              "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Infrastructure\\MAFTravelPlanner.Infrastructure.csproj": {
-                "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Infrastructure\\MAFTravelPlanner.Infrastructure.csproj"
+              "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Infrastructure\\MAFtravelPlanner.Infrastructure.csproj": {
+                "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Infrastructure\\MAFtravelPlanner.Infrastructure.csproj"
               }
             }
           }
@@ -1205,12 +1205,12 @@
         }
       }
     },
-    "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Infrastructure\\MAFTravelPlanner.Infrastructure.csproj": {
+    "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Infrastructure\\MAFtravelPlanner.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Infrastructure\\MAFTravelPlanner.Infrastructure.csproj",
-        "projectName": "MAFTravelPlanner.Infrastructure",
-        "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Infrastructure\\MAFTravelPlanner.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Infrastructure\\MAFtravelPlanner.Infrastructure.csproj",
+        "projectName": "MAFtravelPlanner.Infrastructure",
+        "projectPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Infrastructure\\MAFtravelPlanner.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
         "outputPath": "C:\\Learning\\MAFTravelPlanner\\src\\MAFTravelPlanner.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",

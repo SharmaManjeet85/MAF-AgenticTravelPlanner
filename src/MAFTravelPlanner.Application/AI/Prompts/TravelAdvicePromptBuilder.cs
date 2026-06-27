@@ -3,7 +3,7 @@ using MAFTravelPlanner.Contracts.TravelAdvisor;
 
 namespace MAFTravelPlanner.Application.TravelAdvisor;
 
-internal static class PromptBuilder
+internal static class TravelAdvicePromptBuilder
 {
     public static string Build(
     TravelAdviceRequest request,

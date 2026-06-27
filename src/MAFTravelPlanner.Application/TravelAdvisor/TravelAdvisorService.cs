@@ -36,7 +36,7 @@ public sealed class TravelAdvisorService
             cancellationToken);
 
         var prompt =
-            PromptBuilder.Build(request,weatherResult: weather);
+            TravelAdvicePromptBuilder.Build(request,weatherResult: weather);
 
         var llmResponse = await _llmService.GenerateAsync(
         new LlmRequest(
