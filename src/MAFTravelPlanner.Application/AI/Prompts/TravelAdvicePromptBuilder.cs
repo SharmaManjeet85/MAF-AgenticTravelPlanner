@@ -1,44 +1,63 @@
+using System.Text;
 using MAFTravelPlanner.Application.AI.Tools;
 using MAFTravelPlanner.Contracts.TravelAdvisor;
 
-namespace MAFTravelPlanner.Application.TravelAdvisor;
+namespace MAFTravelPlanner.Application.Prompts;
 
 internal static class TravelAdvicePromptBuilder
 {
     public static string Build(
-    TravelAdviceRequest request,
-    ToolResult weatherResult)
+        TravelAdviceRequest request,
+        IReadOnlyCollection<ToolResult> toolResults)
     {
-        return $"""
-    Travel Planning Context
+        var prompt = new StringBuilder();
 
-    Weather Information
-    -------------------
+        prompt.AppendLine("""
+        Travel Planning Context
 
-    {weatherResult.Content}
+        Tool Observations
+        -----------------
 
-    User Request
-    ------------
+        """);
 
-    Destination : {request.Destination}
+        foreach (var tool in toolResults)
+        {
+            prompt.AppendLine($"Tool : {tool.ToolName}");
 
-    Duration    : {request.Days} days
+            if (tool.Success)
+            {
+                prompt.AppendLine(tool.Content);
+            }
+            else
+            {
+                prompt.AppendLine($"Error : {tool.Error}");
+            }
 
-    Budget      : ₹{request.Budget}
+            prompt.AppendLine();
+        }
 
-    Travel Style: {request.TravelStyle}
+        prompt.AppendLine($"""
+        User Request
+        ------------
 
-    Instructions
-    ------------
+        Destination : {request.Destination}
 
-    Prepare a practical travel itinerary.
+        Duration    : {request.Days} days
 
-    Use the weather information while making recommendations.
+        Budget      : ₹{request.Budget}
 
-    Suggest suitable outdoor and indoor activities.
+        Travel Style: {request.TravelStyle}
 
-    Keep the response concise.
+        Instructions
+        ------------
 
-    """;
+        Prepare a practical travel itinerary.
+
+        Use all available observations.
+
+        Keep the response concise.
+        """);
+
+        return prompt.ToString();
     }
 }

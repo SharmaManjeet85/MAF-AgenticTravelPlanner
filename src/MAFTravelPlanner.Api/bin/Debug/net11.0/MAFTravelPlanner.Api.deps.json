@@ -11,7 +11,7 @@
           "FluentValidation.AspNetCore": "11.3.1",
           "MAFTravelPlanner.Application": "1.0.0",
           "MAFTravelPlanner.Contracts": "1.0.0",
-          "MAFtravelPlanner.Infrastructure": "1.0.0",
+          "MAFTravelPlanner.Infrastructure": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "11.0.0-preview.2.26159.112"
         },
         "runtime": {
@@ -88,12 +88,12 @@
           }
         }
       },
-      "MAFtravelPlanner.Infrastructure/1.0.0": {
+      "MAFTravelPlanner.Infrastructure/1.0.0": {
         "dependencies": {
           "MAFTravelPlanner.Application": "1.0.0"
         },
         "runtime": {
-          "MAFtravelPlanner.Infrastructure.dll": {
+          "MAFTravelPlanner.Infrastructure.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -152,7 +152,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "MAFtravelPlanner.Infrastructure/1.0.0": {
+    "MAFTravelPlanner.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

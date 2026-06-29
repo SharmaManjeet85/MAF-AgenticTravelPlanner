@@ -6,19 +6,35 @@ public static class PlanningResultParser
 {
     public static PlanningResult Parse(string json)
     {
-        var result = JsonSerializer.Deserialize<PlanningResult>(
-            json,
-            new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            });
-
-        if (result is null)
+        if (string.IsNullOrWhiteSpace(json))
         {
-            throw new InvalidOperationException(
-                "Unable to parse planning response.");
+            return PlanningResult.Empty;
         }
 
-        return result;
+        try
+        {
+            var dto = JsonSerializer.Deserialize<PlanningResponseDto>(
+                json,
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+
+            if (dto is null)
+            {
+                return PlanningResult.Empty;
+            }
+
+            return new PlanningResult(
+                dto.RequiresTool,
+                dto.Tool,
+                dto.Arguments);
+        }
+        catch
+        {
+            // If the LLM returns invalid JSON,
+            // fail gracefully.
+            return PlanningResult.Empty;
+        }
     }
 }
