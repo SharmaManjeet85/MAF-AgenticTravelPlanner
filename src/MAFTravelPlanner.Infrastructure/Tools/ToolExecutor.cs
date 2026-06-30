@@ -33,4 +33,11 @@ public sealed class ToolExecutor : IToolExecutor
             context,
             cancellationToken);
     }
+    public IReadOnlyCollection<ToolDefinition> GetAvailableTools()
+    {
+        return _tools.Values
+            .Select(x => x.Definition)
+            .OrderBy(x => x.Name)
+            .ToList();
+    }
 }

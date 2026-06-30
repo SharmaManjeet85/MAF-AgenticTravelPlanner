@@ -6,7 +6,6 @@ using MAFTravelPlanner.Application.AI.Prompts;
 using MAFTravelPlanner.Application.AI.Tools;
 using MAFTravelPlanner.Application.Interfaces;
 using MAFTravelPlanner.Contracts.TravelAdvisor;
-using MAFTravelPlanner.Application.Prompts;
 
 namespace MAFTravelPlanner.Application.TravelAdvisor;
 
@@ -15,11 +14,15 @@ public sealed class TravelAdvisorService : ITravelAdvisorService
     private readonly ILlmService _llmService;
     private readonly IToolExecutor _toolExecutor;
 
+    private readonly IPlanner _planner;
+
     public TravelAdvisorService(
         ILlmService llmService,
+        IPlanner planner,
         IToolExecutor toolExecutor)
     {
         _llmService = llmService;
+        _planner = planner;
         _toolExecutor = toolExecutor;
     }
 
@@ -31,40 +34,16 @@ public sealed class TravelAdvisorService : ITravelAdvisorService
         // STEP 1 : Ask the LLM whether a tool should be executed
         //--------------------------------------------------------
 
-            var planningPrompt =
-                ToolSelectionPromptBuilder.Build(
+            var plan =
+            await _planner.PlanAsync(
+                new PlannerRequest(
                     $"""
-            Plan a {request.Days}-day {request.TravelStyle} trip to {request.Destination}
-            with a budget of ₹{request.Budget}.
+                    Plan a {request.Days}-day {request.TravelStyle} trip to {request.Destination}
+                    with a budget of ₹{request.Budget}.
 
-            Decide whether any tool should be used before generating travel advice.
-            """,
-            new[] { "weather" });
-
-            var planningResponse =
-                await _llmService.GenerateAsync(
-                    new LlmRequest(
-                        Prompt: planningPrompt,
-                        SystemPrompt:
-                            """
-                            You are an AI planner.
-
-                            Return ONLY valid JSON.
-
-                            Do not explain your answer.
-                            """,
-                    Options:
-                        new AiExecutionOptions(
-                            AiResponseStyle.Deterministic)),
-                            cancellationToken);
-
-                Console.WriteLine("===== PLANNER OUTPUT =====");
-                Console.WriteLine(planningResponse.Content);
-
-                var plan =
-                    PlanningResultParser.Parse(
-                        planningResponse.Content);
-
+                    Decide whether any tool should be used before generating travel advice.
+                    """),
+                cancellationToken);
         //--------------------------------------------------------
         // STEP 2 : Execute the selected tool (if any)
         //--------------------------------------------------------

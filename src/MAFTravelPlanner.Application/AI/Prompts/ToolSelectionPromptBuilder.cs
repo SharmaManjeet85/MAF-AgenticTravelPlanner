@@ -1,4 +1,5 @@
 using System.Text;
+using MAFTravelPlanner.Application.AI.Tools;
 
 namespace MAFTravelPlanner.Application.AI.Prompts;
 
@@ -6,50 +7,63 @@ public static class ToolSelectionPromptBuilder
 {
     public static string Build(
         string userRequest,
-        IEnumerable<string> availableTools)
+        IEnumerable<ToolDefinition> availableTools)
     {
         var builder = new StringBuilder();
 
         builder.AppendLine("""
-You are an AI Travel Planning Assistant.
+        You are an AI Travel Planning Assistant.
 
-Your ONLY responsibility is to decide whether one or more tools should be executed BEFORE generating travel advice.
+        Your ONLY responsibility is to decide whether one tool should be executed before generating travel advice.
 
-Guidelines:
+        Return ONLY valid JSON.
 
-- Use the weather tool whenever a destination is provided because weather affects travel recommendations.
-- Use a tool if it can improve the quality or accuracy of the final answer.
-- Do NOT generate travel advice.
-- Do NOT explain your reasoning.
-- Return ONLY valid JSON.
+        If a tool is required:
 
-If a tool is required:
+        {
+          "requiresTool": true,
+          "tool": "<tool-name>",
+          "arguments": {
+          }
+        }
 
-{
-  "requiresTool": true,
-  "tool": "<tool-name>",
-  "arguments": {
-    "destination": "<destination>"
-  }
-}
+        Otherwise:
 
-If no tool is required:
+        {
+          "requiresTool": false
+        }
 
-{
-  "requiresTool": false
-}
+        Available Tools
 
-Available Tools:
-""");
+        ========================
+
+        """);
 
         foreach (var tool in availableTools)
         {
-            builder.AppendLine($"- {tool}");
+            builder.AppendLine($"Tool: {tool.Name}");
+            builder.AppendLine();
+
+            builder.AppendLine("Description:");
+            builder.AppendLine(tool.Description);
+            builder.AppendLine();
+
+            builder.AppendLine("Parameters:");
+
+            foreach (var parameter in tool.Parameters)
+            {
+                builder.AppendLine(
+                    $"- {parameter.Name} {(parameter.Required ? "(required)" : "(optional)")}");
+                builder.AppendLine($"  {parameter.Description}");
+            }
+
+            builder.AppendLine();
+            builder.AppendLine("----------------------------------------");
+            builder.AppendLine();
         }
 
+        builder.AppendLine("User Request");
         builder.AppendLine();
-
-        builder.AppendLine("User Request:");
         builder.AppendLine(userRequest);
 
         return builder.ToString();

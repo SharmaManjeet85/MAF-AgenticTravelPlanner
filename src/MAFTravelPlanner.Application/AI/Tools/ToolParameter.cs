@@ -1,6 +1,6 @@
 namespace MAFTravelPlanner.Application.AI.Tools;
 
-public sealed record ToolDefinition(
+public sealed record ToolParameter(
     string Name,
     string Description,
-    IReadOnlyCollection<ToolParameter> Parameters);
+    bool Required);

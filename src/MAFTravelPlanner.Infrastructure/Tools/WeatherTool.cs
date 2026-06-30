@@ -1,3 +1,4 @@
+using System.Reflection.Metadata;
 using MAFTravelPlanner.Application.AI.Tools;
 
 namespace MAFTravelPlanner.Infrastructure.Tools;
@@ -7,7 +8,14 @@ public sealed class WeatherTool : IWeatherTool
     public ToolDefinition Definition =>
         new(
             "weather",
-            "Returns current weather information for a destination.");
+            "Returns current weather information for a destination.",
+            Parameters: new[]
+            {
+                new ToolParameter(
+                    "destination",
+                    "The destination for which to retrieve weather information.",
+                    true)
+            });
 
     public Task<ToolResult> ExecuteAsync(
         ToolContext context,

@@ -6,4 +6,6 @@ public interface IToolExecutor
         string toolName,
         ToolContext context,
         CancellationToken cancellationToken = default);
+
+    IReadOnlyCollection<ToolDefinition> GetAvailableTools();
 }
