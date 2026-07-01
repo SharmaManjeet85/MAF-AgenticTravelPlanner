@@ -11,6 +11,13 @@ public sealed class ToolExecutor : IToolExecutor
         _tools = tools.ToDictionary(
             x => x.Definition.Name,
             StringComparer.OrdinalIgnoreCase);
+
+        Console.WriteLine("===== TOOL EXECUTOR =====");
+
+        foreach (var tool in tools)
+        {
+            Console.WriteLine(tool.Definition.Name);
+        }
     }
 
     public async Task<ToolResult> ExecuteAsync(

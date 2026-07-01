@@ -1,9 +1,8 @@
-using MAFTravelPlanner.Application.Common;
 using MAFTravelPlanner.Application.AI;
 using MAFTravelPlanner.Application.AI.Models;
 using MAFTravelPlanner.Application.AI.Planning;
-using MAFTravelPlanner.Application.AI.Prompts;
 using MAFTravelPlanner.Application.AI.Tools;
+using MAFTravelPlanner.Application.Common;
 using MAFTravelPlanner.Application.Interfaces;
 using MAFTravelPlanner.Contracts.TravelAdvisor;
 
@@ -12,9 +11,8 @@ namespace MAFTravelPlanner.Application.TravelAdvisor;
 public sealed class TravelAdvisorService : ITravelAdvisorService
 {
     private readonly ILlmService _llmService;
-    private readonly IToolExecutor _toolExecutor;
-
     private readonly IPlanner _planner;
+    private readonly IToolExecutor _toolExecutor;
 
     public TravelAdvisorService(
         ILlmService llmService,
@@ -30,63 +28,66 @@ public sealed class TravelAdvisorService : ITravelAdvisorService
         TravelAdviceRequest request,
         CancellationToken cancellationToken = default)
     {
-        //--------------------------------------------------------
-        // STEP 1 : Ask the LLM whether a tool should be executed
-        //--------------------------------------------------------
+        //----------------------------------------------------
+        // STEP 1 : Planner
+        //----------------------------------------------------
 
-            var plan =
+        var plan =
             await _planner.PlanAsync(
                 new PlannerRequest(
                     $"""
                     Plan a {request.Days}-day {request.TravelStyle} trip to {request.Destination}
                     with a budget of ₹{request.Budget}.
 
-                    Decide whether any tool should be used before generating travel advice.
+                    Decide which tools should be executed before generating travel advice.
                     """),
                 cancellationToken);
-        //--------------------------------------------------------
-        // STEP 2 : Execute the selected tool (if any)
-        //--------------------------------------------------------
 
-                var toolResults = new List<ToolResult>();
+        //----------------------------------------------------
+        // STEP 2 : Execute all tools in parallel
+        //----------------------------------------------------
 
-                if (plan.RequiresTool &&
-                    !string.IsNullOrWhiteSpace(plan.Tool))
-                {
-                    var context =
-                        new ToolContext(
-                            plan.Arguments.ToDictionary(
-                                x => x.Key,
-                                x => (object?)x.Value));
+        var toolTasks =
+            plan.ToolCalls.Select(async toolCall =>
+            {
+                var context =
+                    new ToolContext(
+                        toolCall.Arguments.ToDictionary(
+                            x => x.Key,
+                            x => (object?)x.Value));
 
-                    var toolResult =
-                        await _toolExecutor.ExecuteAsync(
-                            plan.Tool,
-                            context,
-                            cancellationToken);
+                Console.WriteLine($"Executing Tool : {toolCall.ToolName}");
 
-                    toolResults.Add(toolResult);
-                }
-
-        //--------------------------------------------------------
-        // STEP 3 : Generate the final travel advice
-        //--------------------------------------------------------
-
-            var prompt =
-                TravelAdvicePromptBuilder.Build(
-                    request,
-                    toolResults);
-
-            var llmResponse =
-                await _llmService.GenerateAsync(
-                    new LlmRequest(
-                        Prompt: prompt,
-                        SystemPrompt:
-                            "You are an experienced travel advisor.",
-                        Options:
-                            new AiExecutionOptions(
-                                AiResponseStyle.Balanced)),
+                return await _toolExecutor.ExecuteAsync(
+                    toolCall.ToolName,
+                    context,
                     cancellationToken);
+            });
+
+        var toolResults =
+            (await Task.WhenAll(toolTasks))
+            .ToList();
+
+        //----------------------------------------------------
+        // STEP 3 : Generate final response
+        //----------------------------------------------------
+
+        var prompt =
+            TravelAdvicePromptBuilder.Build(
+                request,
+                toolResults);
+
+        var llmResponse =
+            await _llmService.GenerateAsync(
+                new LlmRequest(
+                    Prompt: prompt,
+                    SystemPrompt:
+                        "You are an experienced travel advisor.",
+                    Options:
+                        new AiExecutionOptions(
+                            AiResponseStyle.Balanced),
+                    Purpose: AiPurpose.Generation),
+                cancellationToken);
 
         return Result<TravelAdviceResponse>.Success(
             new TravelAdviceResponse(

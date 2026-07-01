@@ -2,10 +2,9 @@ using System.Text;
 using System.Text.Json;
 using Microsoft.Extensions.Options;
 using MAFTravelPlanner.Application.AI;
+using MAFTravelPlanner.Application.AI.Models;
 using MAFTravelPlanner.Infrastructure.Configuration;
 using MAFTravelPlanner.Infrastructure.LLM.Models;
-using MAFTravelPlanner.Application.AI.Models;
-using System.Diagnostics;
 
 namespace MAFTravelPlanner.Infrastructure.LLM;
 
@@ -23,51 +22,74 @@ public sealed class OllamaLlmService : ILlmService
     }
 
     public async Task<LlmResponse> GenerateAsync(
-        LlmRequest llmRequest,
+        LlmRequest request,
         CancellationToken cancellationToken = default)
     {
-
-        var request = new OllamaGenerateRequest
+        var model = request.Purpose switch
         {
-            Model = _options.Model,
-            Prompt = llmRequest.Prompt,
+            AiPurpose.Planning => _options.PlannerModel,
+            AiPurpose.Generation => _options.GeneralModel,
+            _ => _options.GeneralModel
+        };
+        var ollamaRequest = new OllamaGenerateRequest
+        {
+            Model =  model,
+            Prompt = request.Prompt,
+            System = request.SystemPrompt,
             Stream = false
         };
 
-        var json = JsonSerializer.Serialize(request);
+        Console.WriteLine("===== LLM REQUEST =====");
+        Console.WriteLine($"Purpose : {request.Purpose}");
+        Console.WriteLine($"Model   : {ollamaRequest.Model}");
 
-        var stopwatch = Stopwatch.StartNew();
+        var json = JsonSerializer.Serialize(ollamaRequest);
 
         var response = await _httpClient.PostAsync(
-            "api/generate",
+            "/api/generate",
             new StringContent(
                 json,
                 Encoding.UTF8,
                 "application/json"),
             cancellationToken);
 
-        var responseJson =
-            await response.Content.ReadAsStringAsync(
-                cancellationToken);
+        var responseContent =
+            await response.Content.ReadAsStringAsync(cancellationToken);
 
-        stopwatch.Stop();
 
         if (!response.IsSuccessStatusCode)
         {
-                throw new OllamaException(
-                    $"Ollama returned {response.StatusCode}");
+            throw new InvalidOperationException(
+                $"Ollama returned {(int)response.StatusCode} ({response.StatusCode}). " +
+                $"Response: {responseContent}");
         }
-        var result =
-            JsonSerializer.Deserialize<
-                OllamaGenerateResponse>(
-                responseJson);
 
-        // return responseJson;
-       // return result?.Response ?? string.Empty;
-return new LlmResponse(
-    result?.Response ?? string.Empty,
-    new AiResponseMetadata(
-        _options.Model,
-        stopwatch.Elapsed));
-}
-}
+        var result =
+            JsonSerializer.Deserialize<OllamaGenerateResponse>(
+                responseContent,
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+
+        if (result is null)
+        {
+            throw new InvalidOperationException(
+                "Unable to deserialize Ollama response.");
+        }
+
+        Console.WriteLine("===== LLM RESPONSE =====");
+        Console.WriteLine($"Model    : {result.Model}");
+        Console.WriteLine($"Duration : {result.TotalDuration}");
+
+        var duration =
+        TimeSpan.FromMilliseconds(
+        result.TotalDuration / 1_000_000.0);
+
+        return new LlmResponse(
+            Content: result.Response,
+            Metadata: new AiResponseMetadata(
+                result.Model,
+                duration));
+            }
+        }

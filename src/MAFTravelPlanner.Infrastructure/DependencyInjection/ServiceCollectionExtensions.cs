@@ -5,6 +5,7 @@ using MAFTravelPlanner.Application.AI;
 using MAFTravelPlanner.Infrastructure.LLM;
 using MAFTravelPlanner.Application.AI.Tools;
 using MAFTravelPlanner.Infrastructure.Tools;
+using MAFTravelPlanner.Infrastructure.AI.Tools.Budget;
 
 namespace MAFTravelPlanner.Infrastructure.DependencyInjection;
 
@@ -30,7 +31,8 @@ public static class ServiceCollectionExtensions
                 client.Timeout = TimeSpan.FromSeconds(
                     options.TimeoutSeconds);
             });
-        services.AddScoped<IWeatherTool, WeatherTool>();
+        services.AddScoped<ITool, WeatherTool>();
+        services.AddScoped<ITool, BudgetTool>();
         services.AddScoped<IToolExecutor, ToolExecutor>();
 
         return services;

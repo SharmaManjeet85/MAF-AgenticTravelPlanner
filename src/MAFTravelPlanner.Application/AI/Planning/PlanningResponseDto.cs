@@ -1,15 +1,20 @@
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace MAFTravelPlanner.Application.AI.Planning;
 
-internal sealed class PlanningResponseDto
+public sealed class PlanningResponseDto
 {
-    [JsonPropertyName("requiresTool")]
-    public bool RequiresTool { get; init; }
+    [JsonPropertyName("toolCalls")]
+    public List<ToolCallDto>? ToolCalls { get; set; }
+}
 
+public sealed class ToolCallDto
+{
     [JsonPropertyName("tool")]
-    public string? Tool { get; init; }
+    public string Tool { get; set; } = string.Empty;
 
     [JsonPropertyName("arguments")]
-    public Dictionary<string, string> Arguments { get; init; } = [];
+    public Dictionary<string, JsonElement> Arguments { get; set; }
+        = new();
 }

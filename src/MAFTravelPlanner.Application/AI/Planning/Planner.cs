@@ -29,20 +29,20 @@ public sealed class Planner : IPlanner
         Console.WriteLine("===== PLANNER PROMPT =====");
         Console.WriteLine(prompt);
 
-        var response =
-            await _llmService.GenerateAsync(
-                new LlmRequest(
-                    Prompt: prompt,
-                    SystemPrompt:
-                        """
-                        You are an AI planner.
+       var response =
+                 await _llmService.GenerateAsync(
+        new LlmRequest(
+            Prompt: prompt,
+            SystemPrompt:
+            """
+            You are an AI planner.
 
-                        Return ONLY valid JSON.
-                        """,
-                    Options:
-                        new AiExecutionOptions(
-                            AiResponseStyle.Deterministic)),
-                cancellationToken);
+            Return ONLY valid JSON.
+            """,
+            Options: new AiExecutionOptions(
+                AiResponseStyle.Deterministic),
+            Purpose: AiPurpose.Planning),
+        cancellationToken);
 
         Console.WriteLine("===== PLANNER OUTPUT =====");
         Console.WriteLine(response.Content);

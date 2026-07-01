@@ -6,7 +6,9 @@ public sealed class OllamaOptions
 
     public string BaseUrl { get; set; } = string.Empty;
 
-    public string Model { get; set; } = string.Empty;
+    public string PlannerModel { get; set; } = string.Empty;
+
+    public string GeneralModel { get; set; } = string.Empty;
 
     public int TimeoutSeconds { get; set; }
 }

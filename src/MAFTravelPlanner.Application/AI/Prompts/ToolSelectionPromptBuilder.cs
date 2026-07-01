@@ -12,26 +12,40 @@ public static class ToolSelectionPromptBuilder
         var builder = new StringBuilder();
 
         builder.AppendLine("""
-        You are an AI Travel Planning Assistant.
+        You are an AI Planner.
 
-        Your ONLY responsibility is to decide whether one tool should be executed before generating travel advice.
+        Your ONLY responsibility is to decide which tools should be executed.
+
+        You MUST NOT answer the user's request.
 
         Return ONLY valid JSON.
 
-        If a tool is required:
+        The JSON MUST exactly follow this schema:
 
         {
-          "requiresTool": true,
-          "tool": "<tool-name>",
-          "arguments": {
-          }
+        "toolCalls": [
+            {
+            "tool": "<tool-name>",
+            "arguments": {
+            }
+            }
+        ]
         }
 
-        Otherwise:
+        Rules
+
+        - You may return zero, one or multiple tool calls.
+        - If no tool is required, return:
 
         {
-          "requiresTool": false
+        "toolCalls": []
         }
+
+        Never explain your answer.
+
+        Never return Markdown.
+
+        Return JSON only.
 
         Available Tools
 

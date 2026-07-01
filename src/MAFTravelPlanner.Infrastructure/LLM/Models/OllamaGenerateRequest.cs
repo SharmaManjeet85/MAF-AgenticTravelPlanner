@@ -12,4 +12,7 @@ public sealed class OllamaGenerateRequest
 
     [JsonPropertyName("stream")]
     public bool Stream { get; set; }
+
+    [JsonPropertyName("system")]
+    public string? System { get; set; }
 }
